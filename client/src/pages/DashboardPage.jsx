@@ -75,7 +75,7 @@ function RadarChart({ data, size = 320 }) {
             key={`axis-${i}`}
             x1={cx} y1={cy}
             x2={outer.x} y2={outer.y}
-            stroke="rgba(255,255,255,0.1)"
+            stroke="var(--border-glass)"
             strokeWidth="1"
           />
         );
@@ -87,7 +87,7 @@ function RadarChart({ data, size = 320 }) {
           key={`grid-${li}`}
           points={pts}
           fill="none"
-          stroke="rgba(255,255,255,0.08)"
+          stroke="var(--border-glass)"
           strokeWidth={li === gridPolygons.length - 1 ? 1.5 : 1}
         />
       ))}

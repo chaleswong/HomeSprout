@@ -17,5 +17,14 @@ export default defineConfig({
         ws: true
       }
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'cytoscape': ['cytoscape'],
+        }
+      }
+    }
   }
 });

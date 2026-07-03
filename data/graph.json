@@ -135,6 +135,17 @@
       },
       {
         "data": {
+          "id": "c250b7e2-d99a-4afa-89a0-bb16f7ed925d",
+          "label": "今天用乐高搭了一个蝙蝠侠",
+          "category": "积木",
+          "color": "#64748B",
+          "isHighlight": "true",
+          "degree": 0,
+          "cover": "/api/records/c250b7e2-d99a-4afa-89a0-bb16f7ed925d/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
           "id": "890a194e-9e60-4d0f-9eef-a7e927f09109",
           "label": "我的多图测试大作",
           "category": "绘画",
@@ -146,13 +157,24 @@
       },
       {
         "data": {
-          "id": "c250b7e2-d99a-4afa-89a0-bb16f7ed925d",
-          "label": "今天用乐高搭了一个蝙蝠侠",
-          "category": "积木",
-          "color": "#64748B",
+          "id": "90aecf8c-276f-4669-9185-b61a7359955b",
+          "label": "我的上传音频测试uploadAudioTest1",
+          "category": "未知",
+          "color": "#64748b",
           "isHighlight": "false",
           "degree": 0,
-          "cover": "/api/records/c250b7e2-d99a-4afa-89a0-bb16f7ed925d/media/thumb.webp"
+          "cover": null
+        }
+      },
+      {
+        "data": {
+          "id": "ea262b5b-fe93-4eda-8555-01c5842e4834",
+          "label": "端午节祝大家端午安康",
+          "category": "未知",
+          "color": "#64748b",
+          "isHighlight": "false",
+          "degree": 0,
+          "cover": null
         }
       }
     ],

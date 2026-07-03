@@ -1,12 +1,21 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 
+const isDemoMode = 
+  window.location.hostname.endsWith('github.io') || 
+  window.location.search.includes('demo=true') ||
+  window.location.hostname === 'localhost' && window.location.search.includes('mock=true');
+
 export function useWebSocket(onMessage) {
   const wsRef = useRef(null);
   const [connected, setConnected] = useState(false);
   const reconnectTimer = useRef(null);
 
   const connect = useCallback(() => {
-    // 使用当前窗口的主机名和 3001 端口
+    if (isDemoMode) {
+      console.log('[WS] Demo 模式下跳过 WebSocket 连接');
+      return;
+    }
+
     const wsUrl = `ws://${window.location.hostname}:3001`;
     
     try {

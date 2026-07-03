@@ -92,7 +92,19 @@ export function createRecordsRouter(indexer) {
       return res.status(404).json({ error: '记录不存在' });
     }
 
-    const filePath = path.join(record._dir, req.params.filename);
+    const filename = req.params.filename;
+    if (filename.includes('..') || filename.includes('/') || filename.includes('\\')) {
+      return res.status(403).json({ error: '非法文件名' });
+    }
+
+    const filePath = path.join(record._dir, filename);
+    const realRecordDir = path.resolve(record._dir);
+    const realFilePath = path.resolve(filePath);
+
+    if (!realFilePath.startsWith(realRecordDir)) {
+      return res.status(403).json({ error: '非法文件路径' });
+    }
+
     res.sendFile(filePath, (err) => {
       if (err) {
         console.error('[Records] 文件发送失败:', err.message);

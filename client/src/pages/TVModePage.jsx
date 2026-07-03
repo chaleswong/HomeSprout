@@ -215,7 +215,7 @@ export default function TVModePage() {
   // ── 8. 渲染与布局 ──
   if (loading) {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '80vh', backgroundColor: '#070714', color: '#fff', gap: '20px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '80vh', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', gap: '20px' }}>
         <div style={{ fontSize: '4rem', animation: 'floatBob 1.5s infinite' }}>📺</div>
         <h2 style={{ fontWeight: '700', letterSpacing: '2px' }}>正在构建电视大屏沙发交互系统...</h2>
       </div>
@@ -226,8 +226,8 @@ export default function TVModePage() {
     <div
       style={{
         minHeight: '100vh',
-        backgroundColor: '#070714',
-        color: '#fff',
+        backgroundColor: 'var(--bg-primary)',
+        color: 'var(--text-primary)',
         padding: '30px 50px',
         boxSizing: 'border-box',
         overflow: 'hidden',
@@ -236,14 +236,14 @@ export default function TVModePage() {
       }}
     >
       {/* 顶部标题栏 */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '16px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', borderBottom: '1px solid var(--border-glass)', paddingBottom: '16px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <span style={{ fontSize: '2.2rem' }}>🌱</span>
           <div>
             <h1 style={{ fontSize: '2rem', fontWeight: '800', margin: 0, letterSpacing: '1px', background: 'linear-gradient(135deg, #38bdf8, #818cf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               HomeSprout 电视大屏影院
             </h1>
-            <p style={{ color: 'rgba(255,255,255,0.5)', margin: '4px 0 0 0', fontSize: '0.9rem' }}>
+            <p style={{ color: 'var(--text-muted)', margin: '4px 0 0 0', fontSize: '0.9rem' }}>
               使用电视遥控器 / 游戏手柄进行沙发交互
             </p>
           </div>
@@ -255,10 +255,10 @@ export default function TVModePage() {
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            backgroundColor: 'rgba(255,255,255,0.04)',
+            backgroundColor: 'var(--bg-card)',
             padding: '8px 16px',
             borderRadius: '9999px',
-            border: '1px solid rgba(255,255,255,0.08)',
+            border: '1px solid var(--border-glass)',
             fontSize: '0.85rem',
           }}
         >
@@ -293,11 +293,11 @@ export default function TVModePage() {
           const isFocused = idx === focusedIdx && !selectedRecord;
           const bgTint = isFocused
             ? `rgba(${catTheme.colorRGB || '99,102,241'}, 0.15)`
-            : 'rgba(255, 255, 255, 0.03)';
+            : 'var(--bg-card)';
           const borderGlow = isFocused
             ? `3px solid ${catTheme.colorStart || '#6366f1'}`
-            : '2px solid rgba(255, 255, 255, 0.06)';
-          const textShadow = isFocused ? '0 0 8px rgba(255,255,255,0.5)' : 'none';
+            : '2px solid var(--border-glass)';
+          const textShadow = isFocused ? 'none' : 'none';
 
           return (
             <div
@@ -384,7 +384,7 @@ export default function TVModePage() {
                 >
                   {item.title}
                 </h3>
-                <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)' }}>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
                   {item.date}
                 </div>
               </div>
@@ -399,7 +399,7 @@ export default function TVModePage() {
           style={{
             position: 'fixed',
             inset: 0,
-            backgroundColor: 'rgba(5, 5, 12, 0.95)',
+            backgroundColor: 'rgba(0, 0, 0, 0.95)',
             zIndex: 9999,
             display: 'flex',
             flexDirection: 'column',
@@ -419,7 +419,7 @@ export default function TVModePage() {
               height: '60%',
               backgroundColor: '#000',
               borderRadius: '24px',
-              border: '4px solid rgba(255,255,255,0.08)',
+              border: '4px solid var(--border-glass)',
               overflow: 'hidden',
               boxShadow: '0 20px 50px rgba(0,0,0,0.8)',
               position: 'relative',
@@ -508,7 +508,7 @@ export default function TVModePage() {
             <h2 style={{ fontSize: '2rem', fontWeight: '800', margin: 0 }}>
               {selectedRecord.title}
             </h2>
-            <div style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.45)' }}>
+            <div style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>
               {selectedRecord.date} | 分类：{selectedRecord.category}
             </div>
             
@@ -516,13 +516,13 @@ export default function TVModePage() {
               style={{
                 fontSize: '1.3rem',
                 lineHeight: '1.7',
-                color: 'rgba(255,255,255,0.85)',
+                color: 'var(--text-secondary)',
                 margin: '12px auto 0 auto',
                 maxWidth: '900px',
-                background: 'rgba(255,255,255,0.03)',
+                background: 'var(--bg-card)',
                 padding: '20px 30px',
                 borderRadius: '16px',
-                border: '1px solid rgba(255,255,255,0.06)',
+                border: '1px solid var(--border-glass)',
               }}
             >
               🌱 AI 描述：{selectedRecord.ai_metadata?.description || selectedRecord.description || '暂无详细描述，快去在后台生成吧！'}

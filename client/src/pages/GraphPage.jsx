@@ -98,7 +98,7 @@ export default function GraphPage() {
             'text-max-width': '100px',
             'overlay-opacity': 0,
             'border-width': '2px',
-            'border-color': 'rgba(255,255,255,0.15)',
+            'border-color': 'var(--border-glass)',
             'transition-property': 'background-color, width, height, border-color, opacity',
             'transition-duration': '0.25s'
           }

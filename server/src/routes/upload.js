@@ -3,6 +3,7 @@ import multer from 'multer';
 import path from 'path';
 import fs from 'fs/promises';
 import exifr from 'exifr';
+import { fileTypeFromFile } from 'file-type';
 import {
   isSupportedMedia,
   detectMediaType,
@@ -57,7 +58,32 @@ export function createUploadRouter(incomingDir, indexer, config, broadcast) {
     },
   });
 
-  // 文件过滤器：只接受支持的媒体格式
+  const ALLOWED_MIME_TYPES = new Set([
+    'image/jpeg',
+    'image/png',
+    'image/webp',
+    'video/mp4',
+    'video/quicktime',
+    'audio/mpeg',
+    'audio/wav',
+    'audio/mp4',
+  ]);
+
+  async function validateFileType(filePath) {
+    try {
+      const fileType = await fileTypeFromFile(filePath);
+      if (!fileType) {
+        return { valid: false, reason: '无法检测文件类型' };
+      }
+      if (!ALLOWED_MIME_TYPES.has(fileType.mime)) {
+        return { valid: false, reason: `不支持的文件类型: ${fileType.mime}` };
+      }
+      return { valid: true, reason: null };
+    } catch (err) {
+      return { valid: false, reason: `文件验证失败: ${err.message}` };
+    }
+  }
+
   const fileFilter = (req, file, cb) => {
     const originalName = Buffer.from(file.originalname, 'latin1').toString('utf8');
     if (isSupportedMedia(originalName)) {
@@ -86,9 +112,15 @@ export function createUploadRouter(incomingDir, indexer, config, broadcast) {
   // ========================
   // POST / - 单文件上传
   // ========================
-  router.post('/', uploadSingle.single('file'), (req, res) => {
+  router.post('/', uploadSingle.single('file'), async (req, res) => {
     if (!req.file) {
       return res.status(400).json({ error: '未提供文件或文件格式不支持' });
+    }
+
+    const validation = await validateFileType(req.file.path);
+    if (!validation.valid) {
+      await fs.unlink(req.file.path).catch(() => {});
+      return res.status(400).json({ error: validation.reason });
     }
 
     res.status(201).json({
@@ -109,6 +141,16 @@ export function createUploadRouter(incomingDir, indexer, config, broadcast) {
     try {
       if (!req.files || req.files.length === 0) {
         return res.status(400).json({ error: '未提供文件或文件格式不支持' });
+      }
+
+      for (const file of req.files) {
+        const validation = await validateFileType(file.path);
+        if (!validation.valid) {
+          for (const f of req.files) {
+            await fs.unlink(f.path).catch(() => {});
+          }
+          return res.status(400).json({ error: validation.reason });
+        }
       }
 
       const title = req.body.title || '我的多图作品';

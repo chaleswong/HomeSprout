@@ -40,7 +40,7 @@ export default function ExportPage() {
     
     try {
       setExporting(true);
-      const token = localStorage.getItem('homesprout_admin_token') || 'homesprout-admin-2026';
+      const token = localStorage.getItem('homesprout_admin_token');
 
       if (exportEngine === 'html') {
         // 浏览器 A4 Paged Media 导出逻辑
@@ -305,7 +305,7 @@ export default function ExportPage() {
               </div>
             )}
 
-            <div className="export-stats-list" style={{ display: 'flex', flexDirection: 'column', gap: '8px', margin: '15px 0', padding: '10px 0', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+            <div className="export-stats-list" style={{ display: 'flex', flexDirection: 'column', gap: '8px', margin: '15px 0', padding: '10px 0', borderTop: '1px solid var(--border-glass)', borderBottom: '1px solid var(--border-glass)' }}>
               <div className="export-stat-row" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
                 <span>选定作品数</span>
                 <span style={{ fontWeight: 'bold', color: 'var(--text-primary)' }}>{selectedUuids.length} 个</span>
@@ -348,7 +348,7 @@ export default function ExportPage() {
                 flexDirection: 'column',
                 gap: '8px',
                 fontSize: '0.85rem',
-                border: '1px solid rgba(255,255,255,0.1)'
+                border: '1px solid var(--border-glass)'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span style={{ animation: 'floatBob 1.5s infinite', display: 'inline-block' }}>🤖</span>
@@ -357,7 +357,7 @@ export default function ExportPage() {
                 <div style={{
                   width: '100%',
                   height: '4px',
-                  background: 'rgba(255,255,255,0.05)',
+                  background: 'var(--bg-card)',
                   borderRadius: '2px',
                   overflow: 'hidden'
                 }}>

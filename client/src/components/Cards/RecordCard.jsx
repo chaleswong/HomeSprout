@@ -52,6 +52,8 @@ export default function RecordCard({ record, index }) {
           src={thumbUrl} 
           alt={title} 
           className="card-media"
+          loading="lazy"
+          decoding="async"
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = fallbackUrl;

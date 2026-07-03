@@ -48,14 +48,16 @@ export class FileWatcher {
    * @param {import('./indexer.js').RecordIndexer} options.indexer - 记录索引器
    * @param {import('./services/taskQueue.js').TaskQueue} options.taskQueue - 任务队列
    * @param {Function} options.broadcast - WebSocket 广播函数
+   * @param {boolean} options.aiAvailable - Ollama AI 服务是否可用
    */
-  constructor({ incomingDir, recordsDir, indexer, taskQueue, broadcast }) {
+  constructor({ incomingDir, recordsDir, indexer, taskQueue, broadcast, aiAvailable = false }) {
     this._incomingDir = incomingDir;
     this._recordsDir = recordsDir;
     this._indexer = indexer;
     this._taskQueue = taskQueue;
     this._broadcast = broadcast;
     this._watcher = null;
+    this._aiAvailable = aiAvailable;
   }
 
   /**
@@ -176,11 +178,11 @@ export class FileWatcher {
 
     // 4. 使用 AI 智能分类或规则分类
     let classification;
-    if (config.ai?.enabled) {
+    if (config.ai?.enabled && this._aiAvailable) {
       const categoryLabels = config.categories?.map(c => c.label) || [];
       classification = await classifyWithOllama(destPath, config.ai.ollama_url, config.ai.model, title, categoryLabels);
     } else {
-      console.log(`[Watcher] 启动基于规则的分类: ${targetFilename}`);
+      console.log(`[Watcher] AI ${config.ai?.enabled ? '不可用' : '未启用'}，使用规则分类: ${targetFilename}`);
       classification = classifyByRules(targetFilename, destPath);
     }
 

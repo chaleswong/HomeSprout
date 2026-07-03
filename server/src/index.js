@@ -130,6 +130,21 @@ app.get('/api/health', (req, res) => {
       pending: taskQueue.pending,
       active: taskQueue.active,
     },
+    ai: {
+      enabled: config.ai?.enabled || false,
+      available: aiAvailable,
+      model: config.ai?.model || 'N/A',
+    },
+  });
+});
+
+// 获取 AI 状态
+app.get('/api/ai/status', (req, res) => {
+  res.json({
+    enabled: config.ai?.enabled || false,
+    available: aiAvailable,
+    model: config.ai?.model || 'N/A',
+    ollama_url: config.ai?.ollama_url || 'N/A',
   });
 });
 
@@ -287,16 +302,43 @@ try {
   });
 }
 
-// ========================
-// 创建文件监视器
-// ========================
-const watcher = new FileWatcher({
-  incomingDir,
-  recordsDir,
-  indexer,
-  taskQueue,
-  broadcast,
-});
+let aiAvailable = false;
+
+async function checkOllamaAvailability(url) {
+  return new Promise((resolve) => {
+    try {
+      const parsedUrl = new URL(url);
+      const options = {
+        hostname: parsedUrl.hostname,
+        port: parsedUrl.port || 80,
+        path: '/api/tags',
+        method: 'GET',
+        timeout: 5000
+      };
+
+      const req = http.request(options, (res) => {
+        if (res.statusCode === 200) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      });
+
+      req.on('timeout', () => {
+        req.destroy();
+        resolve(false);
+      });
+
+      req.on('error', () => {
+        resolve(false);
+      });
+
+      req.end();
+    } catch {
+      resolve(false);
+    }
+  });
+}
 
 // ========================
 // 启动服务
@@ -305,19 +347,35 @@ const PORT = config.server?.port || 3001;
 const HOST = config.server?.host || '0.0.0.0';
 
 async function start() {
+  // 检测 Ollama 可用性
+  if (config.ai?.enabled) {
+    aiAvailable = await checkOllamaAvailability(config.ai.ollama_url);
+    if (aiAvailable) {
+      console.log(`[AI] Ollama 服务可用，将使用 ${config.ai.model} 进行智能分类`);
+      preloadOllamaModel(config.ai.ollama_url, config.ai.model);
+    } else {
+      console.warn(`[AI] Ollama 服务不可用，将使用规则分类代替`);
+    }
+  }
+
   // 初始化索引器
   await indexer.init(recordsDir);
+
+  // 创建文件监视器（传入 AI 可用性状态）
+  const watcher = new FileWatcher({
+    incomingDir,
+    recordsDir,
+    indexer,
+    taskQueue,
+    broadcast,
+    aiAvailable,
+  });
 
   // 启动文件监视器
   watcher.start();
 
   // 启动周剪报定时任务
   startWeeklyDigestCron({ recordsDir, reportsDir, config });
-
-  // 后台异步预加载 Ollama 模型
-  if (config.ai?.enabled) {
-    preloadOllamaModel(config.ai.ollama_url, config.ai.model);
-  }
 
 
   // 启动 HTTP 服务器
@@ -333,6 +391,7 @@ async function start() {
     console.log(`  🌱 ║  📡 WS:    ws://${HOST}:${PORT}          ║`);
     console.log(`  🌱 ║  📂 监控:  ${incomingDir}`);
     console.log(`  🌱 ║  📊 记录:  ${indexer.getStats().total} 条已索引`);
+    console.log(`  🌱 ║  🤖 AI:    ${aiAvailable ? '✓ 可用' : '✗ 不可用'}`);
     console.log('  🌱 ║                                       ║');
     console.log('  🌱 ╚═══════════════════════════════════════╝');
     console.log('');
