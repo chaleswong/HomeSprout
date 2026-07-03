@@ -1,0 +1,21 @@
+{
+  "name": "homesprout",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HomeSprout 家庭萌芽档案系统 — Local-First 儿童数字成长档案",
+  "type": "module",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "npm run dev:server & npm run dev:client",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "build": "npm run build --workspace=client",
+    "start": "npm run start --workspace=server"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

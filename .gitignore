@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.vite/
+
+# Data directory media files (keep structure, ignore large binaries)
+data/incoming/*
+!data/incoming/.gitkeep
+data/records/**/*.jpg
+data/records/**/*.jpeg
+data/records/**/*.png
+data/records/**/*.webp
+data/records/**/*.mp4
+data/records/**/*.mov
+data/records/**/*.mp3
+data/records/**/*.wav
+data/records/**/*.m4a
+data/records/**/thumb.webp
+data/trash/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*

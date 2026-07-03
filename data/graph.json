@@ -1,0 +1,161 @@
+{
+  "elements": {
+    "nodes": [
+      {
+        "data": {
+          "id": "0be82d7e-b3d4-4d8f-b1ba-a600d57ad57b",
+          "label": "企鹅一家人",
+          "category": "绘画",
+          "color": "#c4a43c",
+          "isHighlight": "false",
+          "degree": 0,
+          "cover": "/api/records/0be82d7e-b3d4-4d8f-b1ba-a600d57ad57b/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
+          "id": "e81bf74d-36c4-4fb8-9cce-9e019925b766",
+          "label": "和爸爸妈妈一起去西山绿道在天泰湖旁边吃肉松饼",
+          "category": "未知",
+          "color": "#19a1e5",
+          "isHighlight": "true",
+          "degree": 0,
+          "cover": "/api/records/e81bf74d-36c4-4fb8-9cce-9e019925b766/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
+          "id": "f3240739-4cff-4014-b512-a70d55ff7ca4",
+          "label": "在西山绿道徒步日落很美",
+          "category": "未知",
+          "color": "#8ca414",
+          "isHighlight": "true",
+          "degree": 0,
+          "cover": "/api/records/f3240739-4cff-4014-b512-a70d55ff7ca4/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
+          "id": "5000109b-c8ea-4b01-be7c-e0e2d4185742",
+          "label": "参加传播中国声音比赛，《假如风有颜色》",
+          "category": "舞台表现",
+          "color": "#cc4934",
+          "isHighlight": "true",
+          "degree": 0,
+          "cover": "/api/records/5000109b-c8ea-4b01-be7c-e0e2d4185742/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
+          "id": "77e190d2-2e4e-437b-8aeb-56ddb9b7a3f4",
+          "label": "参加小小主持人比赛，在世纪剧院",
+          "category": "舞台表现",
+          "color": "#85c737",
+          "isHighlight": "false",
+          "degree": 0,
+          "cover": "/api/records/77e190d2-2e4e-437b-8aeb-56ddb9b7a3f4/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
+          "id": "229c8d13-c226-460c-8cb3-9e8237dfd67e",
+          "label": "仙女们开联欢会",
+          "category": "绘画",
+          "color": "#c47b3a",
+          "isHighlight": "false",
+          "degree": 0,
+          "cover": "/api/records/229c8d13-c226-460c-8cb3-9e8237dfd67e/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
+          "id": "45c2f348-8b10-4165-8ef5-029c542d9f4d",
+          "label": "skye_watercolor_flower",
+          "category": "绘画",
+          "color": "#e8bc2c",
+          "isHighlight": "false",
+          "degree": 0,
+          "cover": "/api/records/45c2f348-8b10-4165-8ef5-029c542d9f4d/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
+          "id": "370d55d5-b56b-48c4-9be9-d923ca7a2e37",
+          "label": "画了一个拔萝卜的小白兔",
+          "category": "绘画",
+          "color": "#e69e0b",
+          "isHighlight": "false",
+          "degree": 0,
+          "cover": "/api/records/370d55d5-b56b-48c4-9be9-d923ca7a2e37/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
+          "id": "3fd11093-76b3-43e4-b947-f62ee23601a4",
+          "label": "用积木给小兔子做一个游乐场",
+          "category": "积木",
+          "color": "#64748B",
+          "isHighlight": "false",
+          "degree": 0,
+          "cover": "/api/records/3fd11093-76b3-43e4-b947-f62ee23601a4/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
+          "id": "f4bdb27d-8e6f-4ed5-bc54-3449094ce0b9",
+          "label": "参加朵朵杯数独大赛，获得2等奖",
+          "category": "绘画",
+          "color": "#64748B",
+          "isHighlight": "true",
+          "degree": 0,
+          "cover": "/api/records/f4bdb27d-8e6f-4ed5-bc54-3449094ce0b9/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
+          "id": "caa97354-a085-4c97-993b-60574cb6ca95",
+          "label": "今天编写的scratch编程项目，猫咪和花花",
+          "category": "编程",
+          "color": "#e89418",
+          "isHighlight": "true",
+          "degree": 0,
+          "cover": "/api/records/caa97354-a085-4c97-993b-60574cb6ca95/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
+          "id": "e7d6e9a3-e9eb-4008-84de-4af616b088ae",
+          "label": "今天妈妈新买的神探麦克狐到了_很喜欢阅读这本书",
+          "category": "阅读",
+          "color": "#d49825",
+          "isHighlight": "false",
+          "degree": 0,
+          "cover": "/api/records/e7d6e9a3-e9eb-4008-84de-4af616b088ae/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
+          "id": "890a194e-9e60-4d0f-9eef-a7e927f09109",
+          "label": "我的多图测试大作",
+          "category": "绘画",
+          "color": "#e8bc2c",
+          "isHighlight": "false",
+          "degree": 0,
+          "cover": "/api/records/890a194e-9e60-4d0f-9eef-a7e927f09109/media/thumb.webp"
+        }
+      },
+      {
+        "data": {
+          "id": "c250b7e2-d99a-4afa-89a0-bb16f7ed925d",
+          "label": "今天用乐高搭了一个蝙蝠侠",
+          "category": "积木",
+          "color": "#64748B",
+          "isHighlight": "false",
+          "degree": 0,
+          "cover": "/api/records/c250b7e2-d99a-4afa-89a0-bb16f7ed925d/media/thumb.webp"
+        }
+      }
+    ],
+    "edges": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "week_identifier": "2026-W27",
+  "data_density": {
+    "total_captured_assets": 6,
+    "auto_classified_success_rate": 0
+  },
+  "skye_focus_matrix": {
+    "编程 (Scratch)": 0,
+    "绘画 (艺术)": 3,
+    "积木 (手工)": 1,
+    "朗诵/唱歌": 2
+  },
+  "tech_dad_action_items": [
+    "本周共采集了 6 件成长作品。",
+    "本周有高光时刻被星标，可以直接在简历导出器中编译输出。"
+  ]
+}

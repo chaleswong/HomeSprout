@@ -1,0 +1,123 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 3001,
+    "hostname": "homesprout.local"
+  },
+  "paths": {
+    "incoming": "./data/incoming",
+    "records": "./data/records",
+    "drafts": "./data/drafts",
+    "reports": "./data/reports",
+    "trash": "./data/trash"
+  },
+  "ai": {
+    "ollama_url": "http://127.0.0.1:11434",
+    "model": "qwen3-4b-optimized:latest",
+    "enabled": true
+  },
+  "whisper": {
+    "enabled": true,
+    "model": "medium"
+  },
+  "auth": {
+    "admin_token": "homesprout-admin-2026",
+    "roles": {}
+  },
+  "categories": [
+    {
+      "id": "building",
+      "label": "积木",
+      "gradient": [
+        "#FF6B35",
+        "#FF8E53"
+      ],
+      "dimension": "动手创作能力"
+    },
+    {
+      "id": "drawing",
+      "label": "绘画",
+      "gradient": [
+        "#667EEA",
+        "#764BA2"
+      ],
+      "dimension": "艺术创作能力"
+    },
+    {
+      "id": "sudoku",
+      "label": "数独",
+      "gradient": [
+        "#11998E",
+        "#38EF7D"
+      ],
+      "dimension": "逻辑思维能力"
+    },
+    {
+      "id": "coding",
+      "label": "编程",
+      "gradient": [
+        "#4FACFE",
+        "#00F2FE"
+      ],
+      "dimension": "逻辑思维能力"
+    },
+    {
+      "id": "performance",
+      "label": "舞台表现",
+      "gradient": [
+        "#A855F7",
+        "#EC4899"
+      ],
+      "dimension": "艺术表达能力"
+    },
+    {
+      "id": "unknown",
+      "label": "未知",
+      "gradient": [
+        "#64748B",
+        "#94A3B8"
+      ]
+    },
+    {
+      "id": "custom-1782885300200",
+      "label": "阅读",
+      "icon": "📖",
+      "gradient": [
+        "#8A2387",
+        "#E94057"
+      ],
+      "dimension": "语言文学素养"
+    },
+    {
+      "id": "custom-1782968477052",
+      "label": "小鸟英语",
+      "icon": "🐦",
+      "gradient": [
+        "#11998E",
+        "#38EF7D"
+      ],
+      "dimension": "外语交流能力"
+    },
+    {
+      "id": "custom-1782968701198",
+      "label": "拳击",
+      "icon": "🥊",
+      "gradient": [
+        "#667EEA",
+        "#764BA2"
+      ],
+      "dimension": "体育运动能力"
+    },
+    {
+      "id": "custom-1782969033186",
+      "label": "定向越野",
+      "icon": "🏃",
+      "gradient": [
+        "#4FACFE",
+        "#00F2FE"
+      ],
+      "dimension": "体育运动能力"
+    }
+  ],
+  "theme": "light"
+}
